@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TransitionsModal({ children, media_type, id }) {
+function TransitionsModal({ children, media_type, id }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState();
@@ -75,8 +75,7 @@ export default function TransitionsModal({ children, media_type, id }) {
         className="media"
         style={{ cursor: "pointer" }}
         color="inherit"
-        onClick={handleOpen}
-      >
+        onClick={handleOpen}>
         {children}
       </div>
       <Modal
@@ -89,8 +88,7 @@ export default function TransitionsModal({ children, media_type, id }) {
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
-        }}
-      >
+        }}>
         <Fade in={open}>
           {content && (
             <div className={classes.paper}>
@@ -140,8 +138,7 @@ export default function TransitionsModal({ children, media_type, id }) {
                     startIcon={<YouTubeIcon />}
                     color="secondary"
                     target="__blank"
-                    href={`https://www.youtube.com/watch?v=${video}`}
-                  >
+                    href={`https://www.youtube.com/watch?v=${video}`}>
                     Watch the Trailer
                   </Button>
                 </div>
@@ -153,3 +150,5 @@ export default function TransitionsModal({ children, media_type, id }) {
     </>
   );
 }
+
+export default TransitionsModal;
